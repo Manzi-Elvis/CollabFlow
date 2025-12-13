@@ -16,7 +16,7 @@ export default function Column({ column }: ColumnProps) {
   const tasks = useSelector((state: RootState) => state.boards.tasks)
 
   return (
-    <div className="flex flex-col w-[280px] bg-muted rounded-xl p-3">
+    <div className="flex flex-col w-70 bg-muted rounded-xl p-3">
       <ColumnHeader title={column.name} />
 
       <div className="flex flex-col gap-2 mt-3">
