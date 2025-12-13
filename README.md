@@ -41,11 +41,11 @@ This project helped me dive deep into:
 |-----------|-------|
 | **Frontend** | React, Next.js, TypeScript |
 | **Styling**  | Tailwind CSS, Framer Motion |
-| **State Management** | Redux Toolkit / Zustand |
+| **State Management** | Redux Toolkit |
 | **Forms & Validation** | React Hook Form, Yup |
-| **Auth & Database** | Firebase / Supabase |
+| **Auth & Database** | Supabase |
 | **Data Visualization** | Recharts |
-| **Real-Time** | Socket.io / Firebase Realtime |
+| **Real-Time** | Socket.io |
 | **Deployment** | Vercel |
 
 ---
