@@ -22,7 +22,7 @@ export default function BoardView() {
       ))}
 
       {/* Add Column placeholder */}
-      <button className="min-w-[280px] h-fit rounded-xl border border-dashed p-4 text-sm text-muted-foreground hover:bg-muted">
+      <button className="min-w-70 h-fit rounded-xl border border-dashed p-4 text-sm text-muted-foreground hover:bg-muted">
         + Add column
       </button>
     </div>
