@@ -69,3 +69,5 @@ const boardsSlice = createSlice({
     },
   },
 })
+
+export default boardsSlice.reducer
