@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import authReducer from './auth/authSlice'
+import authReducer from './auth/authSlice.ts'
 import workspaceReducer from './workspace/workspaceSlice'
 import boardsReducer from './boards/boardsSlice'
 import uiReducer from './ui/uiSlice'
