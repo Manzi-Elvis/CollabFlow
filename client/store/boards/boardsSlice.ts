@@ -35,3 +35,37 @@ const initialState: BoardsState = {
   tasks: {},
   activeBoardId: null,
 }
+
+const boardsSlice = createSlice({
+  name: 'boards',
+  initialState,
+  reducers: {
+    setActiveBoard(state, action: PayloadAction<string>) {
+      state.activeBoardId = action.payload
+    },
+
+    setBoardData(state, action: PayloadAction<BoardsState>) {
+      return action.payload
+    },
+
+    moveTask(
+      state,
+      action: PayloadAction<{
+        taskId: string
+        fromColumnId: string
+        toColumnId: string
+        toIndex: number
+      }>
+    ) {
+      const { taskId, fromColumnId, toColumnId, toIndex } = action.payload
+
+      const fromTasks = state.columns[fromColumnId].taskIds
+      const toTasks = state.columns[toColumnId].taskIds
+
+      state.columns[fromColumnId].taskIds = fromTasks.filter(id => id !== taskId)
+      toTasks.splice(toIndex, 0, taskId)
+
+      state.tasks[taskId].columnId = toColumnId
+    },
+  },
+})
