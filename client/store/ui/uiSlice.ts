@@ -1,25 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type ModalType = 'CREATE_TASK' | 'CREATE_COLUMN' | 'NONE'
+export type ModalType = 'NONE' | 'CREATE_TASK'
 
 type UiState = {
   activeModal: ModalType
   modalPayload?: any
-  isSidebarOpen: boolean
-  isDragging: boolean
 }
 
 const initialState: UiState = {
   activeModal: 'NONE',
-  isSidebarOpen: true,
-  isDragging: false,
 }
 
 const uiSlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
-    openModal(state, action: PayloadAction<{ type: ModalType; payload?: any }>) {
+    openModal(
+      state,
+      action: PayloadAction<{ type: ModalType; payload?: any }>
+    ) {
       state.activeModal = action.payload.type
       state.modalPayload = action.payload.payload
     },
@@ -27,13 +26,8 @@ const uiSlice = createSlice({
       state.activeModal = 'NONE'
       state.modalPayload = undefined
     },
-    toggleSidebar(state) {
-      state.isSidebarOpen = !state.isSidebarOpen
-    },
-    setDragging(state, action: PayloadAction<boolean>) {
-      state.isDragging = action.payload
-    },
   },
 })
 
+export const { openModal, closeModal } = uiSlice.actions
 export default uiSlice.reducer
