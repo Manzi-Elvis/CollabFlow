@@ -4,6 +4,10 @@ import { useSelector } from 'react-redux'
 import { RootState } from '@/store'
 import ColumnHeader from './ColumnHeader'
 import TaskCard from '@/components/tasks/TaskCard'
+import { useDispatch } from 'react-redux'
+import { openModal } from '@/store/ui/uiSlice'
+
+const dispatch = useDispatch()
 
 type ColumnProps = {
   column: {
@@ -40,9 +44,13 @@ export default function Column({ column }: ColumnProps) {
         })}
       </div>
 
-      <button className="mt-3 text-xs text-muted-foreground hover:text-foreground">
-        + Add task
-      </button>
+      <button onClick={() => dispatch(
+        openModal({
+          type: 'CREATE_TASK',
+          payload: { columnId: column.id },
+        })
+      )} className="mt-3 text-xs text-muted-foreground hover:text-foreground"> + Add task </button>
+
     </div>
   )
 }
